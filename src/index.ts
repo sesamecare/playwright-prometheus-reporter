@@ -75,7 +75,12 @@ export default class PrometheusReporter implements Reporter {
     }
     if (this.config.gateway) {
       const gateway = new Pushgateway(this.config.gateway);
-      await gateway.pushAdd({ jobName: this.jobName });
+      try {
+        await gateway.pushAdd({ jobName: this.jobName });
+        console.log('Pushed metrics to Prometheus gateway.');
+      } catch (error) {
+        console.error('Failed to push metrics.', error);
+      }
     }
   }
 }
