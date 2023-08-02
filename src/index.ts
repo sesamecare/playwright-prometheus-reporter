@@ -40,7 +40,7 @@ export default class PrometheusReporter implements Reporter {
   onTestBegin(test: TestCase): void {
     const { id } = test;
     this.timers[id] = histogram.startTimer({
-      jobName: this.jobName,
+      job: this.jobName,
       suite: test.parent.title,
       project: test.parent.project()?.name,
       location: `${test.location.file}:${test.location.line}`,
@@ -50,7 +50,7 @@ export default class PrometheusReporter implements Reporter {
 
   onTestEnd(test: TestCase, result: TestResult): void {
     counter.inc({
-      jobName: this.jobName,
+      job: this.jobName,
       outcome: result.status,
       suite: test.parent.title,
       project: test.parent.project()?.name,
