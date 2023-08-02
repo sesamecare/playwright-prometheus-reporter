@@ -78,10 +78,14 @@ export default class PrometheusReporter implements Reporter {
       const gateway = new Pushgateway(this.config.gateway);
       try {
         const { resp } = await gateway.pushAdd({ jobName: this.jobName });
-        const httpResponse = resp as http.IncomingMessage;
-        console.log(`playwright-prometheus-reporter pushed metrics (${httpResponse.statusCode}).`);
+        const { statusCode = 0 } = resp as http.IncomingMessage;
+        if (statusCode >= 200 && statusCode < 300) {
+          console.log(`playwright-prometheus-reporter pushed metrics (${statusCode}).`);
+        } else {
+          console.error(`playwright-prometheus-reporter failed to push metrics (${statusCode}).`);
+        }
       } catch (error) {
-        console.error('Failed to push metrics.', error);
+        console.error('playwright-prometheus-reporter failed to push metrics', error);
       }
     }
   }
