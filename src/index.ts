@@ -11,27 +11,34 @@ const counter = new Counter({
   help: 'Metrics about a test run',
   labelNames,
 });
-const histogram = new Histogram({
-  name: 'test_run_duration',
-  help: 'Duration of a test run',
-  labelNames,
-});
+
+function makeHistogram(buckets: number[] = [0.5, 1, 5, 10, 15, 30, 60]) {
+  return new Histogram({
+    name: 'test_run_duration',
+    help: 'Duration of a test run',
+    labelNames,
+    buckets,
+  });
+}
 
 interface ConfigOptions {
   outputFile?: string;
   gateway?: string;
   stdout?: boolean;
   jobName?: string;
+  buckets?: number[];
 }
 
 // eslint-disable-next-line import/no-default-export
 export default class PrometheusReporter implements Reporter {
   config: ConfigOptions;
+  histogram: ReturnType<typeof makeHistogram>;
 
-  timers: Record<string, ReturnType<(typeof histogram)['startTimer']>> = {};
+  timers: Record<string, ReturnType<(typeof this.histogram)['startTimer']>> = {};
 
   constructor(options: ConfigOptions = {}) {
     this.config = options;
+    this.histogram = makeHistogram(options.buckets);
   }
 
   get jobName() {
@@ -40,7 +47,7 @@ export default class PrometheusReporter implements Reporter {
 
   onTestBegin(test: TestCase): void {
     const { id } = test;
-    this.timers[id] = histogram.startTimer({
+    this.timers[id] = this.histogram.startTimer({
       job: this.jobName,
       suite: test.parent.title,
       project: test.parent.project()?.name,
