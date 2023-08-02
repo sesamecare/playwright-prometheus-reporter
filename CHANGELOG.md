@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/sesamecare/playwright-prometheus-reporter/compare/v1.0.0...v1.0.1) (2023-08-02)
+
+
+### Bug Fixes
+
+* **label:** change job label to job instead of jobName ([f9826a3](https://github.com/sesamecare/playwright-prometheus-reporter/commit/f9826a394305468c94b04c6ef1552df0c6372350))
+
 # 1.0.0 (2023-08-02)
 
 
