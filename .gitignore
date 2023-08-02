@@ -1,0 +1,22 @@
+/node_modules
+/npm-debug.log
+/.DS_Store
+/lib
+/build
+
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Added by coconfig
+.eslintignore
+.npmignore
+tsconfig.json
+tsconfig.build.json
+jest.config.js
+.prettierrc.js
+.eslintrc.js
+.commitlintrc.json
