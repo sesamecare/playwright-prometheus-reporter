@@ -1,4 +1,5 @@
 import fs from 'fs';
+import http from 'http';
 
 import { Counter, Histogram, register, Pushgateway } from 'prom-client';
 import type { Reporter, TestCase, TestResult } from '@playwright/test/reporter';
@@ -76,8 +77,9 @@ export default class PrometheusReporter implements Reporter {
     if (this.config.gateway) {
       const gateway = new Pushgateway(this.config.gateway);
       try {
-        await gateway.pushAdd({ jobName: this.jobName });
-        console.log('Pushed metrics to Prometheus gateway.');
+        const { resp } = await gateway.pushAdd({ jobName: this.jobName });
+        const httpResponse = resp as http.IncomingMessage;
+        console.log(`playwright-prometheus-reporter pushed metrics (${httpResponse.statusCode}).`);
       } catch (error) {
         console.error('Failed to push metrics.', error);
       }
