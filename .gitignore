@@ -3,6 +3,7 @@
 /.DS_Store
 /lib
 /build
+metrics.txt
 
 .yarn/*
 !.yarn/patches
@@ -20,3 +21,6 @@ jest.config.js
 .prettierrc.js
 .eslintrc.js
 .commitlintrc.json
+/test-results/
+/playwright-report/
+/playwright/.cache/
