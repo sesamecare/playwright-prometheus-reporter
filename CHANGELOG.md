@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/sesamecare/playwright-prometheus-reporter/compare/v1.0.1...v1.0.2) (2023-08-02)
+
+
+### Bug Fixes
+
+* **log:** log gateway action ([5e4514c](https://github.com/sesamecare/playwright-prometheus-reporter/commit/5e4514c1e4f4c04b7b11b7307df0de1288799aca))
+
 ## [1.0.1](https://github.com/sesamecare/playwright-prometheus-reporter/compare/v1.0.0...v1.0.1) (2023-08-02)
 
 
