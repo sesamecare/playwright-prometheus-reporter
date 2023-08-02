@@ -27,6 +27,11 @@ jobs:
   publish-npm:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      id-token: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v1
 

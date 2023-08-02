@@ -75,7 +75,7 @@ export default class PrometheusReporter implements Reporter {
     }
     if (this.config.gateway) {
       const gateway = new Pushgateway(this.config.gateway);
-      await gateway.push({ jobName: this.jobName });
+      await gateway.pushAdd({ jobName: this.jobName });
     }
   }
 }
