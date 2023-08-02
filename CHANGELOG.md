@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/sesamecare/playwright-prometheus-reporter/compare/v1.0.4...v1.0.5) (2023-08-02)
+
+
+### Bug Fixes
+
+* **buckets:** define histogram buckets ([b206d6e](https://github.com/sesamecare/playwright-prometheus-reporter/commit/b206d6ef272a305da5f7cee0a16907f1fb3090e4))
+
 ## [1.0.4](https://github.com/sesamecare/playwright-prometheus-reporter/compare/v1.0.3...v1.0.4) (2023-08-02)
 
 
