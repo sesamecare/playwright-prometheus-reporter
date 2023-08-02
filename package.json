@@ -1,6 +1,6 @@
 {
   "name": "@sesamecare-oss/playwright-prometheus-reporter",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A custom reporter for Playwright that exposes (and pushes) prometheus metrics",
   "main": "build/index.js",
   "types": "build/index.d.ts",

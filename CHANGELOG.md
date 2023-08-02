@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/sesamecare/playwright-prometheus-reporter/compare/v1.0.3...v1.0.4) (2023-08-02)
+
+
+### Bug Fixes
+
+* **log:** log errors for non-200 responses ([f9c8158](https://github.com/sesamecare/playwright-prometheus-reporter/commit/f9c81587c54de121f8de2af70322e3cbf50a0947))
+
 ## [1.0.3](https://github.com/sesamecare/playwright-prometheus-reporter/compare/v1.0.2...v1.0.3) (2023-08-02)
 
 
