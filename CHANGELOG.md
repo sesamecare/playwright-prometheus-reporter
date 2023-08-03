@@ -1,3 +1,11 @@
+## [1.0.6](https://github.com/sesamecare/playwright-prometheus-reporter/compare/v1.0.5...v1.0.6) (2023-08-03)
+
+
+### Bug Fixes
+
+* **counters:** add more counters to get more action ([8d0e3b1](https://github.com/sesamecare/playwright-prometheus-reporter/commit/8d0e3b18721ca9e59b631a7695cff411335ce58e))
+* **lint:** fix lint issues ([b874c2e](https://github.com/sesamecare/playwright-prometheus-reporter/commit/b874c2e965ed8c783811bb573a2d09bb24cb33a6))
+
 ## [1.0.5](https://github.com/sesamecare/playwright-prometheus-reporter/compare/v1.0.4...v1.0.5) (2023-08-02)
 
 
