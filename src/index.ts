@@ -4,10 +4,8 @@ import http from 'http';
 
 import { Counter, Histogram, register, Pushgateway } from 'prom-client';
 import type {
-  FullConfig,
   FullResult,
   Reporter,
-  Suite,
   TestCase,
   TestResult,
   TestStep,
@@ -93,7 +91,7 @@ export default class PrometheusReporter implements Reporter {
     return undefined;
   }
 
-  onBegin(config: FullConfig<{}, {}>, suite: Suite): void {
+  onBegin(): void {
     suiteStartCounter.inc(
       {
         job: this.jobName,
